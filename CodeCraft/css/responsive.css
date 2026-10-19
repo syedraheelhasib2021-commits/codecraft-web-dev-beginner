@@ -1,0 +1,63 @@
+/* ==========================================================
+   CodeCraft — Responsive rules
+   Base styles in style.css are fluid (auto-fit grids, clamp()
+   typography); this file adds layout changes at breakpoints.
+   ========================================================== */
+
+/* Larger screens: sticky sidebar table of contents */
+@media (min-width: 992px) {
+  .doc-layout { grid-template-columns: 260px minmax(0, 1fr); }
+  .toc { position: sticky; top: calc(var(--header-h) + 20px); }
+}
+
+/* Laptop / tablet landscape and below: collapse navigation */
+@media (max-width: 1060px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-list {
+    display: none; position: absolute; left: 0; right: 0; top: var(--header-h);
+    flex-direction: column; gap: .15rem; padding: .8rem 1.25rem 1.2rem;
+    background: var(--navy); border-bottom: 1px solid var(--border-dark); box-shadow: var(--shadow-lg);
+    max-height: calc(100vh - var(--header-h)); overflow-y: auto;
+  }
+  .nav-list.open { display: flex; }
+  .nav-list a { padding: .8rem 1rem; font-size: 1rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .section { padding: 3.2rem 0; }
+  .hero { padding: 3.2rem 0 3.5rem; }
+  .page-banner { padding: 2.6rem 0 2.4rem; }
+  .cta-banner { padding: 2.4rem 1.4rem; }
+  .form-card { padding: 1.4rem; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container { width: min(100% - 2rem, var(--container)); }
+  .btn { width: 100%; }
+  .btn-row { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 18px; }
+  .timeline > li { padding-left: 3.4rem; }
+  .timeline .node { width: 38px; height: 38px; font-size: .9rem; }
+  pre { font-size: .8rem; padding: 1rem; }
+  .card { padding: 1.3rem; }
+  .project-card { padding: 0; }
+  .steps > li { padding-left: 3rem; }
+}
+
+/* Very small screens (320px) */
+@media (max-width: 340px) {
+  h1 { font-size: 1.75rem; }
+  .logo { font-size: 1.1rem; }
+  .logo-mark { width: 30px; height: 30px; }
+}
+
+/* Print: readable lessons */
+@media print {
+  .site-header, .site-footer, .cta-banner, .nav-toggle { display: none; }
+  body { background: #fff; }
+  .section.dark, .section.slate, .hero, .page-banner { background: #fff; color: #000; }
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting Started with Web Development — Beginner Guide | CodeCraft</title>
+  <meta name="description" content="A complete beginner introduction to web development: how websites work, frontend vs backend, the tools you need, and a step-by-step tutorial for building your first HTML page.">
+  <meta name="theme-color" content="#0B1120">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233B82F6'/%3E%3Ctext x='16' y='22' font-size='16' font-family='monospace' font-weight='700' text-anchor='middle' fill='%230B1120'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="CodeCraft home"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span></button>
+    <nav aria-label="Primary">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="has-dd has-current"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-learn">Learn<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-learn">
+            <li><a href="getting-started.html" aria-current="page">Getting Started<small>How websites work and your first page</small></a></li>
+            <li><a href="html-tutorial.html">HTML<small>Structure, text, forms and semantics</small></a></li>
+            <li><a href="css-tutorial.html">CSS<small>Style, layout, Flexbox, Grid and responsive</small></a></li>
+            <li><a href="roadmap.html">Roadmap<small>A 10-stage path with a progress tracker</small></a></li>
+          </ul>
+        </li>
+        <li class="has-dd"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-explore">Explore<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-explore">
+            <li><a href="projects.html">Projects<small>Six beginner builds with guides</small></a></li>
+            <li><a href="resources.html">Resources<small>Trusted tools and documentation</small></a></li>
+            <li><a href="faq.html">FAQ<small>Quick answers to common questions</small></a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-banner">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">Getting Started</li></ol></nav>
+    <h1>Getting Started with Web Development</h1>
+    <p>Everything you need to understand before writing your first line of code, and a step-by-step tutorial to build your first page.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container doc-layout">
+    <aside class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#what-is">What is web development?</a></li>
+        <li><a href="#front-back">Frontend vs. backend</a></li>
+        <li><a href="#how-it-works">How websites work</a></li>
+        <li><a href="#trio">HTML, CSS and JavaScript</a></li>
+        <li><a href="#tools">Tools you need</a></li>
+        <li><a href="#first-website">Your first website</a></li>
+        <li><a href="#tips">Tips and common mistakes</a></li>
+      </ol>
+    </aside>
+
+    <div class="doc-content">
+      <div class="learn-box">
+        <h2>What You’ll Learn</h2>
+        <ul class="stat-list">
+          <li>What web development is and how a website reaches your screen</li>
+          <li>The difference between frontend and backend work</li>
+          <li>What HTML, CSS and JavaScript each do</li>
+          <li>How to set up a free editor and create your first HTML file</li>
+        </ul>
+      </div>
+
+      <section id="what-is">
+        <h2>What Is Web Development?</h2>
+        <p>Web development is the work of building websites and web applications. A website can be as simple as a single page that introduces you, or as complex as an online store or social network. All of them are built from a small set of core technologies that you can learn step by step.</p>
+        <p>People often split the work into two areas: the part visitors see and interact with, and the part that runs behind the scenes. We call these the frontend and the backend.</p>
+      </section>
+
+      <section id="front-back">
+        <h2>Frontend vs. Backend Development</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col"></th><th scope="col">Frontend</th><th scope="col">Backend</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">What it is</th><td>Everything the visitor sees and uses in the browser</td><td>Code and data on a server that the visitor never sees</td></tr>
+              <tr><th scope="row">Examples</th><td>Layouts, buttons, menus, forms, colors, animations</td><td>User accounts, databases, payments, sending email</td></tr>
+              <tr><th scope="row">Core technologies</th><td>HTML, CSS, JavaScript</td><td>Languages such as Python, JavaScript (Node.js), PHP, Java and databases</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>CodeCraft focuses on <strong>frontend fundamentals</strong>. They are the best place to start because you can see results immediately, with no server required.</p>
+      </section>
+
+      <section id="how-it-works">
+        <h2>How Websites Work</h2>
+        <ol>
+          <li><strong>You type an address</strong> (a URL) into your browser or click a link.</li>
+          <li><strong>The browser sends a request</strong> to a web server, a computer that stores the website’s files.</li>
+          <li><strong>The server responds</strong> with files: HTML, CSS, images and sometimes JavaScript.</li>
+          <li><strong>The browser reads those files</strong> and draws the page on your screen.</li>
+        </ol>
+        <div class="callout"><strong class="title">Good to know</strong><p>When you build a page on your own computer, your browser can open the file directly. You do not need a server to learn HTML and CSS.</p></div>
+      </section>
+
+      <section id="trio">
+        <h2>HTML, CSS and JavaScript</h2>
+        <div class="grid grid-3">
+          <div class="card"><div class="icon html" aria-hidden="true">&lt;/&gt;</div><h3>HTML</h3><p>The structure and content: headings, text, images and links.</p></div>
+          <div class="card"><div class="icon css" aria-hidden="true">{ }</div><h3>CSS</h3><p>The presentation: colors, fonts, spacing and layout.</p></div>
+          <div class="card"><div class="icon js" aria-hidden="true">JS</div><h3>JavaScript</h3><p>The behavior: menus that open, forms that validate, content that updates.</p></div>
+        </div>
+        <p style="margin-top:1.2rem">A helpful comparison is a house: HTML is the walls and rooms, CSS is the paint and furniture, and JavaScript is the electricity that makes things work.</p>
+      </section>
+
+      <section id="tools">
+        <h2>Tools You Need to Begin</h2>
+        <p>You need only two things, and both are free.</p>
+        <ul>
+          <li><strong>A web browser.</strong> Chrome, Firefox, Edge or Safari all work. The browser reads your code and shows the page. It also has built-in developer tools for inspecting and debugging.</li>
+          <li><strong>A text editor.</strong> A text editor is a program for writing code as plain text. <a href="https://code.visualstudio.com/" rel="noopener">Visual Studio Code</a> is a popular free choice with helpful features such as color-coded code and auto-complete. Avoid word processors like Microsoft Word, which add hidden formatting.</li>
+        </ul>
+        <p>See the <a href="resources.html">Resources &amp; Tools</a> page for more recommendations.</p>
+      </section>
+
+      <section id="first-website">
+        <h2>Tutorial: Build Your First Website</h2>
+        <ol class="steps">
+          <li>
+            <h3>Create a project folder</h3>
+            <p>Make a new folder on your computer called <code>my-first-site</code>. Keeping all of a website’s files in one folder makes them easy to find and link together.</p>
+          </li>
+          <li>
+            <h3>Create an HTML file</h3>
+            <p>Open your editor, create a new file and save it inside the folder as <code>index.html</code>. The name <code>index.html</code> is the traditional name for a site’s home page.</p>
+          </li>
+          <li>
+            <h3>Add the basic structure</h3>
+            <p>Type or paste this code into the file:</p>
+            <div class="code-window">
+              <div class="code-bar"><i></i><i></i><i></i><span>index.html</span></div>
+<pre><code><span class="tok-tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tok-tag">&lt;html</span> <span class="tok-attr">lang</span>=<span class="tok-str">"en"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;head&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">charset</span>=<span class="tok-str">"utf-8"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">name</span>=<span class="tok-str">"viewport"</span> <span class="tok-attr">content</span>=<span class="tok-str">"width=device-width, initial-scale=1"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;title&gt;</span>My First Website<span class="tok-tag">&lt;/title&gt;</span>
+<span class="tok-tag">&lt;/head&gt;</span>
+<span class="tok-tag">&lt;body&gt;</span>
+  <span class="tok-tag">&lt;h1&gt;</span>Hello, world!<span class="tok-tag">&lt;/h1&gt;</span>
+  <span class="tok-tag">&lt;p&gt;</span>This is my very first web page.<span class="tok-tag">&lt;/p&gt;</span>
+<span class="tok-tag">&lt;/body&gt;</span>
+<span class="tok-tag">&lt;/html&gt;</span></code></pre>
+            </div>
+            <p>The <code>&lt;title&gt;</code> appears on the browser tab. Everything inside <code>&lt;body&gt;</code> appears on the page.</p>
+          </li>
+          <li>
+            <h3>Open it in your browser</h3>
+            <p>Save the file, then double-click it in your folder. It opens in your browser and you will see your heading and paragraph.</p>
+          </li>
+          <li>
+            <h3>Add some style with CSS</h3>
+            <p>Create a second file in the same folder named <code>style.css</code>:</p>
+            <div class="code-window">
+              <div class="code-bar"><i></i><i></i><i></i><span>style.css</span></div>
+<pre><code><span class="tok-sel">body</span> {
+  <span class="tok-prop">font-family</span>: <span class="tok-val">Arial, sans-serif</span>;
+  <span class="tok-prop">max-width</span>: <span class="tok-val">40rem</span>;
+  <span class="tok-prop">margin</span>: <span class="tok-val">2rem auto</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">0 1rem</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">#f8fafc</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#0f172a</span>;
+}
+
+<span class="tok-sel">h1</span> {
+  <span class="tok-prop">color</span>: <span class="tok-val">#2563eb</span>;
+}</code></pre>
+            </div>
+          </li>
+          <li>
+            <h3>Link the CSS to your HTML</h3>
+            <p>Add this line inside the <code>&lt;head&gt;</code> of <code>index.html</code>, just below the title:</p>
+            <div class="code-window">
+              <div class="code-bar"><i></i><i></i><i></i><span>index.html (inside head)</span></div>
+<pre><code><span class="tok-tag">&lt;link</span> <span class="tok-attr">rel</span>=<span class="tok-str">"stylesheet"</span> <span class="tok-attr">href</span>=<span class="tok-str">"style.css"</span><span class="tok-tag">&gt;</span></code></pre>
+            </div>
+            <p>Save both files and refresh the browser. The page now has a new font, a light background and a blue heading. You have built a styled website.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="tips">
+        <h2>Beginner Tips and Common Mistakes</h2>
+        <div class="callout tip"><strong class="title">Tips for success</strong>
+          <ul>
+            <li>Type the code yourself instead of only copying it. It builds muscle memory.</li>
+            <li>Change one thing at a time, save, and refresh to see what happened.</li>
+            <li>Practice a little every day. Short, regular sessions beat rare marathons.</li>
+            <li>Use your browser’s developer tools (press <code>F12</code>) to inspect any page.</li>
+          </ul>
+        </div>
+        <div class="callout warn"><strong class="title">Common mistakes</strong>
+          <ul>
+            <li><strong>Forgetting to save</strong> before refreshing the browser.</li>
+            <li><strong>Missing closing tags</strong> such as <code>&lt;/p&gt;</code>, which can break the layout.</li>
+            <li><strong>Wrong file names or paths</strong>. <code>style.css</code> and <code>Style.css</code> can be different files.</li>
+            <li><strong>Using a word processor</strong> instead of a plain text editor.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="pager">
+        <a class="btn btn-secondary back" href="index.html">Home</a>
+        <a class="btn btn-primary" href="html-tutorial.html">Next lesson: Learn HTML</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+        <p style="margin-top:1rem;max-width:300px">Learn to Code. Build with Confidence. Free, beginner-friendly lessons in HTML, CSS and the fundamentals of web development.</p>
+      </div>
+      <div>
+        <h2>Learn</h2>
+        <ul>
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="html-tutorial.html">Learn HTML</a></li>
+          <li><a href="css-tutorial.html">Learn CSS</a></li>
+          <li><a href="roadmap.html">Learning Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="projects.html">Beginner Projects</a></li>
+          <li><a href="resources.html">Resources &amp; Tools</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>CodeCraft</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact &amp; Feedback</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CodeCraft. An educational resource for beginners.</span>
+      <span>Built with HTML5 &amp; CSS3.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

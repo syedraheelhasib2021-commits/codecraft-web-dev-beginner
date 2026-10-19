@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn CSS — Beginner CSS3 Tutorial | CodeCraft</title>
+  <meta name="description" content="A beginner CSS tutorial covering selectors, colors, typography, the box model, Flexbox, Grid, transitions, media queries and responsive design, with a mini styling exercise.">
+  <meta name="theme-color" content="#0B1120">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233B82F6'/%3E%3Ctext x='16' y='22' font-size='16' font-family='monospace' font-weight='700' text-anchor='middle' fill='%230B1120'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="CodeCraft home"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span></button>
+    <nav aria-label="Primary">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="has-dd has-current"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-learn">Learn<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-learn">
+            <li><a href="getting-started.html">Getting Started<small>How websites work and your first page</small></a></li>
+            <li><a href="html-tutorial.html">HTML<small>Structure, text, forms and semantics</small></a></li>
+            <li><a href="css-tutorial.html" aria-current="page">CSS<small>Style, layout, Flexbox, Grid and responsive</small></a></li>
+            <li><a href="roadmap.html">Roadmap<small>A 10-stage path with a progress tracker</small></a></li>
+          </ul>
+        </li>
+        <li class="has-dd"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-explore">Explore<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-explore">
+            <li><a href="projects.html">Projects<small>Six beginner builds with guides</small></a></li>
+            <li><a href="resources.html">Resources<small>Trusted tools and documentation</small></a></li>
+            <li><a href="faq.html">FAQ<small>Quick answers to common questions</small></a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-banner">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="getting-started.html">Learn</a></li><li aria-current="page">CSS</li></ol></nav>
+    <h1>Learn CSS</h1>
+    <p>CSS controls how your HTML looks and adapts to different screens. Learn the essentials with live code and visual results.</p>
+    <div class="badge-row"><span class="badge beginner">Beginner</span><span class="badge">CSS3</span><span class="badge">About 3–4 hours</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container doc-layout">
+    <aside class="toc" aria-label="On this page">
+      <h2>Lessons</h2>
+      <ol>
+        <li><a href="#what">What is CSS?</a></li>
+        <li><a href="#types">Inline, internal, external</a></li>
+        <li><a href="#selectors">Selectors and properties</a></li>
+        <li><a href="#colors">Colors and backgrounds</a></li>
+        <li><a href="#typography">Typography</a></li>
+        <li><a href="#spacing">Margin, padding, border</a></li>
+        <li><a href="#box-model">The box model</a></li>
+        <li><a href="#display">Display and positioning</a></li>
+        <li><a href="#flexbox">Flexbox</a></li>
+        <li><a href="#grid">CSS Grid</a></li>
+        <li><a href="#hover">Hover and transitions</a></li>
+        <li><a href="#media">Media queries</a></li>
+        <li><a href="#responsive">Responsive basics</a></li>
+        <li><a href="#exercise">Mini exercise</a></li>
+      </ol>
+    </aside>
+
+    <div class="doc-content">
+      <div class="learn-box">
+        <h2>What You’ll Learn</h2>
+        <ul class="stat-list">
+          <li>How to connect CSS to HTML and select the elements you want to style</li>
+          <li>Colors, fonts, spacing and the box model</li>
+          <li>Modern layouts with Flexbox and Grid</li>
+          <li>Hover effects, transitions and responsive design with media queries</li>
+        </ul>
+      </div>
+
+      <section id="what">
+        <h2>1. What Is CSS?</h2>
+        <p>CSS stands for <strong>Cascading Style Sheets</strong>. While HTML provides structure, CSS provides presentation: colors, fonts, spacing and layout. A CSS rule has a <strong>selector</strong> (what to style) and a <strong>declaration block</strong> (how to style it).</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>rule-anatomy.css</span></div><pre tabindex="0"><code><span class="tok-sel">h1</span> {            <span class="tok-com">/* selector */</span>
+  <span class="tok-prop">color</span>: <span class="tok-val">navy</span>;  <span class="tok-com">/* property: value; */</span>
+  <span class="tok-prop">font-size</span>: <span class="tok-val">2rem</span>;
+}</code></pre></div>
+      </section>
+
+      <section id="types">
+        <h2>2. Types of CSS: Inline, Internal, External</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Type</th><th scope="col">Where it goes</th><th scope="col">When to use it</th></tr></thead>
+            <tbody>
+              <tr><td>Inline</td><td><code>style</code> attribute on one element</td><td>Rarely. Hard to maintain.</td></tr>
+              <tr><td>Internal</td><td><code>&lt;style&gt;</code> element in the <code>&lt;head&gt;</code></td><td>Quick experiments or one-page demos.</td></tr>
+              <tr><td>External</td><td>A separate <code>.css</code> file linked from the HTML</td><td>Best practice for real websites.</td></tr>
+            </tbody>
+          </table>
+        </div>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>three-ways.html</span></div><pre tabindex="0"><code><span class="tok-com">&lt;!-- 1. Inline --&gt;</span>
+<span class="tok-tag">&lt;p</span> <span class="tok-attr">style</span>=<span class="tok-str">"color: crimson;"</span><span class="tok-tag">&gt;</span>Inline styled text<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span>
+
+<span class="tok-com">&lt;!-- 2. Internal (in the head) --&gt;</span>
+<span class="tok-tag">&lt;style</span><span class="tok-tag">&gt;</span>
+  p { color: crimson; }
+<span class="tok-tag">&lt;/style</span><span class="tok-tag">&gt;</span>
+
+<span class="tok-com">&lt;!-- 3. External (recommended) --&gt;</span>
+<span class="tok-tag">&lt;link</span> <span class="tok-attr">rel</span>=<span class="tok-str">"stylesheet"</span> <span class="tok-attr">href</span>=<span class="tok-str">"css/style.css"</span><span class="tok-tag">&gt;</span></code></pre></div>
+      </section>
+
+      <section id="selectors">
+        <h2>3. Selectors and Properties</h2>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>selectors.css</span></div><pre tabindex="0"><code><span class="tok-com">/* Element selector: every paragraph */</span>
+<span class="tok-sel">p</span> { <span class="tok-prop">line-height</span>: <span class="tok-val">1.6</span>; }
+
+<span class="tok-com">/* Class selector: elements with class="card" */</span>
+<span class="tok-sel">.card</span> { <span class="tok-prop">padding</span>: <span class="tok-val">1rem</span>; }
+
+<span class="tok-com">/* ID selector: the element with id="intro" (use sparingly) */</span>
+<span class="tok-sel">#intro</span> { <span class="tok-prop">font-size</span>: <span class="tok-val">1.2rem</span>; }
+
+<span class="tok-com">/* Descendant selector: links inside the nav */</span>
+<span class="tok-sel">nav a</span> { <span class="tok-prop">text-decoration</span>: <span class="tok-val">none</span>; }
+
+<span class="tok-com">/* Pseudo-class: a link while hovered */</span>
+<span class="tok-sel">a:hover</span> { <span class="tok-prop">text-decoration</span>: <span class="tok-val">underline</span>; }</code></pre></div>
+        <p>Classes are the most useful selector because you can reuse them on as many elements as you like.</p>
+      </section>
+
+      <section id="colors">
+        <h2>4. Colors and Backgrounds</h2>
+        <p>Colors can be written as names (<code>tomato</code>), hex codes (<code>#3b82f6</code>), <code>rgb()</code> or <code>hsl()</code> values. Backgrounds can be colors, images or gradients.</p>
+        <div class="demo-pair">
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>colors.css</span></div><pre tabindex="0"><code><span class="tok-sel">.banner</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">linear-gradient(135deg, #3b82f6, #22d3ee)</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#0b1120</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">1.5rem</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">12px</span>;
+}</code></pre></div>
+          <div class="demo-output"><div class="label">Output</div><div class="stage"><div style="background:linear-gradient(135deg,#3b82f6,#22d3ee);color:#0b1120;padding:1.5rem;border-radius:12px;font-weight:600">A gradient banner</div></div></div>
+        </div>
+        <div class="callout warn"><strong class="title">Check contrast</strong><p>Text must stand out clearly from its background. WCAG recommends a contrast ratio of at least 4.5:1 for normal text.</p></div>
+      </section>
+
+      <section id="typography">
+        <h2>5. Typography and Fonts</h2>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>typography.css</span></div><pre tabindex="0"><code><span class="tok-sel">body</span> {
+  <span class="tok-prop">font-family</span>: <span class="tok-val">"Inter", Arial, sans-serif</span>; <span class="tok-com">/* fallbacks after the first font */</span>
+  <span class="tok-prop">font-size</span>: <span class="tok-val">1rem</span>;
+  <span class="tok-prop">line-height</span>: <span class="tok-val">1.7</span>;      <span class="tok-com">/* comfortable reading */</span>
+}
+<span class="tok-sel">h1</span> {
+  <span class="tok-prop">font-weight</span>: <span class="tok-val">700</span>;
+  <span class="tok-prop">letter-spacing</span>: <span class="tok-val">-0.01em</span>;
+}</code></pre></div>
+        <p>Web fonts such as those from Google Fonts are linked in the HTML <code>&lt;head&gt;</code>. Always list a fallback font. Use <code>rem</code> units so text respects the user’s browser settings.</p>
+      </section>
+
+      <section id="spacing">
+        <h2>6. Margins, Padding and Borders</h2>
+        <ul>
+          <li><strong>Padding</strong> is space <em>inside</em> an element, between its content and its border.</li>
+          <li><strong>Border</strong> is the line around the padding.</li>
+          <li><strong>Margin</strong> is space <em>outside</em> the border, separating the element from its neighbors.</li>
+        </ul>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>spacing.css</span></div><pre tabindex="0"><code><span class="tok-sel">.box</span> {
+  <span class="tok-prop">padding</span>: <span class="tok-val">1rem 1.5rem</span>;          <span class="tok-com">/* top/bottom  left/right */</span>
+  <span class="tok-prop">border</span>: <span class="tok-val">2px solid #3b82f6</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">10px</span>;
+  <span class="tok-prop">margin</span>: <span class="tok-val">2rem auto</span>;             <span class="tok-com">/* auto centers a block with a set width */</span>
+}</code></pre></div>
+      </section>
+
+      <section id="box-model">
+        <h2>7. The CSS Box Model</h2>
+        <p>Every element is a rectangular box made of four layers: <strong>content</strong>, <strong>padding</strong>, <strong>border</strong> and <strong>margin</strong>.</p>
+        <div class="demo-output" style="max-width:420px"><div class="label">Box model diagram</div>
+          <div class="stage" style="background:#FBD5A5;padding:1rem;text-align:center;font-size:.85rem">Margin
+            <div style="background:#FDE68A;border:3px solid #F59E0B;padding:1rem;margin-top:.4rem">Border + Padding
+              <div style="background:#93C5FD;padding:1.4rem;margin-top:.4rem;font-weight:600">Content</div>
+            </div>
+          </div>
+        </div>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>box-sizing.css</span></div><pre tabindex="0"><code><span class="tok-com">/* Makes width include padding and border: far easier to reason about */</span>
+<span class="tok-sel">*, *::before, *::after</span> {
+  <span class="tok-prop">box-sizing</span>: <span class="tok-val">border-box</span>;
+}</code></pre></div>
+      </section>
+
+      <section id="display">
+        <h2>8. Display and Positioning</h2>
+        <p>The <code>display</code> property controls how an element takes up space. <code>block</code> elements (like <code>&lt;div&gt;</code> and <code>&lt;p&gt;</code>) fill the full width and start on a new line. <code>inline</code> elements (like <code>&lt;a&gt;</code> and <code>&lt;span&gt;</code>) flow within text. <code>none</code> hides an element entirely.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th scope="col">position</th><th scope="col">Behavior</th></tr></thead>
+          <tbody>
+            <tr><td><code>static</code></td><td>Default normal flow</td></tr>
+            <tr><td><code>relative</code></td><td>Offset from its normal place; becomes a reference point for children</td></tr>
+            <tr><td><code>absolute</code></td><td>Placed relative to the nearest positioned ancestor</td></tr>
+            <tr><td><code>fixed</code></td><td>Stays in place relative to the viewport while scrolling</td></tr>
+            <tr><td><code>sticky</code></td><td>Scrolls normally, then sticks at a set offset</td></tr>
+          </tbody>
+        </table></div>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>sticky-header.css</span></div><pre tabindex="0"><code><span class="tok-sel">.site-header</span> {
+  <span class="tok-prop">position</span>: <span class="tok-val">sticky</span>;
+  <span class="tok-prop">top</span>: <span class="tok-val">0</span>;               <span class="tok-com">/* sticks to the top edge when scrolling */</span>
+  <span class="tok-prop">z-index</span>: <span class="tok-val">100</span>;
+}</code></pre></div>
+      </section>
+
+      <section id="flexbox">
+        <h2>9. Flexbox</h2>
+        <p>Flexbox arranges items in a single row or column and makes spacing and alignment simple. Add <code>display: flex</code> to a container and its children become flex items.</p>
+        <div class="demo-pair">
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>flexbox.css</span></div><pre tabindex="0"><code><span class="tok-sel">.toolbar</span> {
+  <span class="tok-prop">display</span>: <span class="tok-val">flex</span>;
+  <span class="tok-prop">justify-content</span>: <span class="tok-val">space-between</span>;
+  <span class="tok-prop">align-items</span>: <span class="tok-val">center</span>;
+  <span class="tok-prop">gap</span>: <span class="tok-val">1rem</span>;
+}</code></pre></div>
+          <div class="demo-output"><div class="label">Output</div><div class="stage">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;background:#D7E6EE;padding:.8rem;border-radius:10px">
+              <strong>Logo</strong><span>Menu item</span><span style="background:#3B82F6;color:#fff;padding:.3rem .9rem;border-radius:999px">Button</span>
+            </div>
+          </div></div>
+        </div>
+        <p><code>justify-content</code> spreads items along the main axis; <code>align-items</code> aligns them on the other axis; <code>flex-wrap: wrap</code> lets items move to a new line on small screens.</p>
+      </section>
+
+      <section id="grid">
+        <h2>10. CSS Grid</h2>
+        <p>Grid lays out content in rows <em>and</em> columns at the same time, ideal for card layouts and page templates.</p>
+        <div class="demo-pair">
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>grid.css</span></div><pre tabindex="0"><code><span class="tok-sel">.cards</span> {
+  <span class="tok-prop">display</span>: <span class="tok-val">grid</span>;
+  <span class="tok-prop">grid-template-columns</span>: <span class="tok-val">repeat(3, 1fr)</span>;
+  <span class="tok-prop">gap</span>: <span class="tok-val">1rem</span>;
+}</code></pre></div>
+          <div class="demo-output"><div class="label">Output</div><div class="stage">
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;text-align:center;color:#fff;font-weight:600">
+              <div style="background:#3B82F6;padding:1rem;border-radius:8px">1</div><div style="background:#2563EB;padding:1rem;border-radius:8px">2</div><div style="background:#0891B2;padding:1rem;border-radius:8px">3</div>
+              <div style="background:#0891B2;padding:1rem;border-radius:8px">4</div><div style="background:#3B82F6;padding:1rem;border-radius:8px">5</div><div style="background:#2563EB;padding:1rem;border-radius:8px">6</div>
+            </div>
+          </div></div>
+        </div>
+        <div class="callout tip"><strong class="title">Flexbox or Grid?</strong><p>Use Flexbox for one-dimensional layouts (a row of buttons, a nav bar). Use Grid for two-dimensional layouts (a page or a card gallery). They work well together.</p></div>
+        <p>A responsive grid without media queries:</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>auto-fit-grid.css</span></div><pre tabindex="0"><code><span class="tok-sel">.cards</span> {
+  <span class="tok-prop">display</span>: <span class="tok-val">grid</span>;
+  <span class="tok-prop">grid-template-columns</span>: <span class="tok-val">repeat(auto-fit, minmax(240px, 1fr))</span>;
+  <span class="tok-prop">gap</span>: <span class="tok-val">1rem</span>;
+}</code></pre></div>
+      </section>
+
+      <section id="hover">
+        <h2>11. Hover Effects and Transitions</h2>
+        <p>A <code>transition</code> smooths a change between two states. Always style <code>:focus-visible</code> too so keyboard users get the same feedback.</p>
+        <div class="demo-pair">
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>button.css</span></div><pre tabindex="0"><code><span class="tok-sel">.btn</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">#3b82f6</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#fff</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">0.7rem 1.4rem</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-val">999px</span>;
+  <span class="tok-prop">transition</span>: <span class="tok-val">transform 0.2s, background 0.2s</span>;
+}
+.<span class="tok-prop">btn</span>:<span class="tok-val">hover,</span>
+<span class="tok-sel">.btn:focus-visible</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">#2563eb</span>;
+  <span class="tok-prop">transform</span>: <span class="tok-val">translateY(-2px)</span>;
+}</code></pre></div>
+          <div class="demo-output"><div class="label">Output (hover or focus the button)</div><div class="stage">
+            <a class="btn btn-primary" href="#hover">Hover me</a>
+          </div></div>
+        </div>
+        <p>Respect users who prefer less motion with <code>@media (prefers-reduced-motion: reduce)</code>.</p>
+      </section>
+
+      <section id="media">
+        <h2>12. Media Queries</h2>
+        <p>A media query applies CSS only when a condition is true, usually the width of the screen.</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>media-query.css</span></div><pre tabindex="0"><code><span class="tok-sel">.cards</span> {
+  <span class="tok-prop">display</span>: <span class="tok-val">grid</span>;
+  <span class="tok-prop">grid-template-columns</span>: <span class="tok-val">1fr</span>;            <span class="tok-com">/* mobile first: one column */</span>
+}
+
+<span class="tok-sel">@media (min-width: 768px)</span> {
+  <span class="tok-sel">.cards</span> { <span class="tok-prop">grid-template-columns</span>: <span class="tok-val">repeat(2, 1fr)</span>; }
+}
+
+<span class="tok-sel">@media (min-width: 1024px)</span> {
+  <span class="tok-sel">.cards</span> { <span class="tok-prop">grid-template-columns</span>: <span class="tok-val">repeat(3, 1fr)</span>; }
+}</code></pre></div>
+        <p>This is the <strong>mobile-first</strong> approach: write styles for small screens first, then add <code>min-width</code> queries for larger ones.</p>
+      </section>
+
+      <section id="responsive">
+        <h2>13. Responsive Design Basics</h2>
+        <ol>
+          <li><strong>Add the viewport meta tag</strong> in your HTML head so phones scale the page correctly.</li>
+          <li><strong>Use flexible units</strong>: percentages, <code>rem</code>, <code>fr</code> and <code>max-width</code> instead of fixed pixel widths.</li>
+          <li><strong>Make images fluid</strong> with <code>max-width: 100%; height: auto;</code>.</li>
+          <li><strong>Use Flexbox and Grid</strong> to let content rearrange naturally.</li>
+          <li><strong>Add media queries</strong> only where the layout needs to change.</li>
+          <li><strong>Test</strong> by resizing the browser window or using device mode in developer tools.</li>
+        </ol>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>responsive-basics.css</span></div><pre tabindex="0"><code><span class="tok-sel">img</span> {
+  <span class="tok-prop">max-width</span>: <span class="tok-val">100%</span>;
+  <span class="tok-prop">height</span>: <span class="tok-val">auto</span>;
+}
+<span class="tok-sel">.container</span> {
+  <span class="tok-prop">width</span>: <span class="tok-val">min(100% - 2rem, 1100px)</span>;
+  <span class="tok-prop">margin-inline</span>: <span class="tok-val">auto</span>;
+}</code></pre></div>
+      </section>
+
+      <section id="exercise">
+        <h2>Mini Exercise: Style Your Personal Webpage</h2>
+        <div class="callout tip"><strong class="title">Your task</strong><p>Take the <code>profile.html</code> you built in the <a href="html-tutorial.html#exercise">HTML exercise</a> and style it with an external stylesheet named <code>style.css</code>.</p></div>
+        <p><strong>Requirements checklist:</strong></p>
+        <ul>
+          <li>Link <code>style.css</code> in the head of <code>profile.html</code>.</li>
+          <li>Set a readable font, a background color and a text color with good contrast.</li>
+          <li>Center the content with a <code>max-width</code> and <code>margin: 0 auto</code>.</li>
+          <li>Style the header with a background color and padding.</li>
+          <li>Turn your list of hobbies into a Flexbox row of “tag” items.</li>
+          <li>Add a hover effect to your link.</li>
+          <li>Add one media query that adjusts padding on small screens.</li>
+        </ul>
+        <p><strong>Starter code:</strong></p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>style.css</span></div><pre tabindex="0"><code><span class="tok-sel">*</span> { <span class="tok-prop">box-sizing</span>: <span class="tok-val">border-box</span>; }
+
+<span class="tok-sel">body</span> {
+  <span class="tok-prop">font-family</span>: <span class="tok-val">Arial, sans-serif</span>;
+  <span class="tok-prop">line-height</span>: <span class="tok-val">1.6</span>;
+  <span class="tok-prop">background</span>: <span class="tok-val">#f8fafc</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#0f172a</span>;
+  <span class="tok-prop">margin</span>: <span class="tok-val">0</span>;
+}
+
+<span class="tok-sel">header</span> {
+  <span class="tok-prop">background</span>: <span class="tok-val">#0b1120</span>;
+  <span class="tok-prop">color</span>: <span class="tok-val">#f1f5f9</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">2rem 1rem</span>;
+  <span class="tok-prop">text-align</span>: <span class="tok-val">center</span>;
+}
+
+<span class="tok-sel">main</span> {
+  <span class="tok-prop">max-width</span>: <span class="tok-val">42rem</span>;
+  <span class="tok-prop">margin</span>: <span class="tok-val">0 auto</span>;
+  <span class="tok-prop">padding</span>: <span class="tok-val">1.5rem 1rem</span>;
+}
+
+<span class="tok-com">/* Your turn: style the hobby list, link hover and add a media query */</span></code></pre></div>
+      </section>
+
+      <div class="pager">
+        <a class="btn btn-secondary back" href="html-tutorial.html">Learn HTML</a>
+        <a class="btn btn-primary" href="roadmap.html">Next: Learning Roadmap</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+        <p style="margin-top:1rem;max-width:300px">Learn to Code. Build with Confidence. Free, beginner-friendly lessons in HTML, CSS and the fundamentals of web development.</p>
+      </div>
+      <div>
+        <h2>Learn</h2>
+        <ul>
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="html-tutorial.html">Learn HTML</a></li>
+          <li><a href="css-tutorial.html">Learn CSS</a></li>
+          <li><a href="roadmap.html">Learning Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="projects.html">Beginner Projects</a></li>
+          <li><a href="resources.html">Resources &amp; Tools</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>CodeCraft</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact &amp; Feedback</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CodeCraft. An educational resource for beginners.</span>
+      <span>Built with HTML5 &amp; CSS3.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

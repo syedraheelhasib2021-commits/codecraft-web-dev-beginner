@@ -1,0 +1,246 @@
+/* ==========================================================
+   CodeCraft — Effects & interactions (loaded after style.css)
+   1 Page load · 2 Buttons · 3 Links · 4 Nav + dropdown
+   5 Cards & icons · 6 Hero · 7 Scroll animations & progress
+   8 Code copy · 9 Roadmap tracker · 10 Filters · 11 FAQ · 12 Misc
+   All motion is switched off for users who prefer reduced motion.
+   ========================================================== */
+
+/* 1. Page load ------------------------------------------------ */
+body { animation: pageIn .5s ease both; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* 2. Buttons: colour change, sliding arrow, lift, shadow, shine -- */
+.btn { position: relative; }
+.btn:active { transform: translateY(0) scale(.97); }
+a.btn:not(.no-arrow):not(.back)::after {
+  content: "\2192"; display: inline-block; transition: transform .25s ease;
+}
+a.btn.back::before { content: "\2190"; display: inline-block; transition: transform .25s ease; }
+a.btn:hover::after, a.btn:focus-visible::after { transform: translateX(5px); }
+a.btn.back:hover::before, a.btn.back:focus-visible::before { transform: translateX(-5px); }
+
+.btn-primary {
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .38) 50%, transparent 70%) -160% 0 / 60% 100% no-repeat, var(--blue);
+  transition: transform .2s, box-shadow .25s, background-position .7s ease, background-color .2s;
+}
+.btn-primary:hover, .btn-primary:focus-visible {
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .38) 50%, transparent 70%) 260% 0 / 60% 100% no-repeat, var(--blue-dark);
+  box-shadow: 0 14px 32px rgba(59, 130, 246, .5);
+}
+.cta-banner .btn-primary, .cta-banner .btn-primary:hover { background: #E0F2FE; box-shadow: 0 8px 22px rgba(2, 6, 23, .25); }
+.cta-banner .btn-primary:hover { background: #fff; }
+.btn-secondary:hover, .btn-secondary:focus-visible { background: rgba(34, 211, 238, .1); box-shadow: 0 8px 22px rgba(34, 211, 238, .15); }
+.section:not(.dark):not(.slate) .btn-secondary:hover { background: rgba(59, 130, 246, .1); }
+
+/* 3. Links: highlight sweep, arrow slide ------------------------- */
+main :is(p, li, td, dd) a:not(.btn):not(.card-link) {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+  background: linear-gradient(rgba(34, 211, 238, .28), rgba(34, 211, 238, .28)) no-repeat 0 100% / 0 100%;
+  transition: background-size .3s ease, color .2s, text-decoration-thickness .2s;
+}
+main :is(p, li, td, dd) a:not(.btn):not(.card-link):hover,
+main :is(p, li, td, dd) a:not(.btn):not(.card-link):focus-visible {
+  background-size: 100% 100%; text-decoration-thickness: 2px;
+}
+.toc a, .breadcrumb a { text-decoration: none !important; }
+.card .card-link { display: inline-flex; align-items: center; gap: .25rem; align-self: flex-start; text-decoration: none; transition: gap .25s, color .2s; }
+.card .card-link::after { display: inline-block; transition: transform .25s ease; }
+.card .card-link:hover::after, .card .card-link:focus-visible::after { transform: translateX(6px); }
+.card .card-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.site-footer a { display: inline-block; transition: color .2s, transform .2s; }
+.site-footer a:hover { transform: translateX(4px); }
+.logo-mark { transition: transform .3s cubic-bezier(.3, 1.6, .5, 1); }
+.logo:hover .logo-mark { transform: rotate(-10deg) scale(1.1); }
+
+/* 4. Navigation: underline grow, sticky shadow, dropdown --------- */
+.site-header { transition: box-shadow .3s, background .3s; }
+.site-header.scrolled { box-shadow: 0 10px 30px rgba(2, 6, 23, .45); background: rgba(11, 17, 32, .97); }
+.nav-list > li > a { position: relative; }
+.nav-list > li > a::after, .dd-toggle::after {
+  content: ""; position: absolute; left: .7rem; right: .7rem; bottom: .25rem; height: 2px; border-radius: 2px;
+  background: var(--cyan); transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+}
+.nav-list > li > a:hover::after, .nav-list > li > a:focus-visible::after,
+.dd-toggle:hover::after, .has-dd.open .dd-toggle::after { transform: scaleX(1); }
+.nav-list > li > a[aria-current="page"] { box-shadow: none; }
+.nav-list > li > a[aria-current="page"]::after { transform: scaleX(1); }
+
+.has-dd { position: relative; }
+.dd-toggle {
+  position: relative; font: inherit; font-size: .92rem; font-weight: 500; background: none; border: 0; cursor: pointer;
+  display: flex; align-items: center; gap: .4rem; padding: .5rem .7rem; border-radius: 8px; color: #CBD5E1;
+  transition: background .2s, color .2s;
+}
+.dd-toggle:hover, .has-dd.open .dd-toggle { background: rgba(59, 130, 246, .16); color: #fff; }
+.has-dd.has-current .dd-toggle { color: var(--cyan); background: rgba(34, 211, 238, .1); }
+.has-dd.has-current .dd-toggle::after { transform: scaleX(1); }
+.caret {
+  width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px); transition: transform .25s;
+}
+.has-dd.open .caret { transform: rotate(225deg) translate(-1px, -1px); }
+.dd-menu {
+  list-style: none; margin: 0; padding: .5rem; position: absolute; left: 0; top: calc(100% + 8px); min-width: 280px;
+  background: #0F1A2E; border: 1px solid var(--border-dark); border-radius: 14px; box-shadow: var(--shadow-lg);
+  opacity: 0; visibility: hidden; transform: translateY(10px) scale(.98); transform-origin: top left;
+  /* delayed close gives the pointer time to travel from button to menu */
+  transition: opacity .2s ease .14s, transform .2s ease .14s, visibility 0s linear .34s;
+}
+.dd-menu::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+.has-dd.open .dd-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+html:not(.js) .has-dd:hover .dd-menu, html:not(.js) .has-dd:focus-within .dd-menu { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.dd-menu a { display: block; padding: .65rem .9rem; border-radius: 10px; transition: background .2s, transform .2s, padding .2s; }
+.dd-menu a::after { display: none; }
+.dd-menu a small { display: block; color: var(--muted); font-weight: 400; font-size: .78rem; line-height: 1.4; margin-top: .1rem; }
+.dd-menu a:hover, .dd-menu a:focus-visible { background: rgba(59, 130, 246, .18); transform: translateX(4px); }
+.nav-list .dd-menu a[aria-current="page"] { background: rgba(34, 211, 238, .12); box-shadow: inset 3px 0 0 var(--cyan); }
+
+@media (max-width: 1060px) {
+  .dd-toggle { width: 100%; justify-content: space-between; padding: .8rem 1rem; font-size: 1rem; }
+  .dd-toggle::after { display: none; }
+  .dd-menu {
+    position: static; opacity: 1; visibility: visible; transform: none; display: none; min-width: 0;
+    box-shadow: none; border: 0; background: transparent; padding: 0 0 .4rem 1rem; transition: none;
+  }
+  .has-dd.open .dd-menu { display: block; animation: ddDown .25s ease; }
+  .nav-list > li > a::after { display: none; }
+  .nav-list > li > a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--cyan); }
+}
+@keyframes ddDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+/* 5. Cards & icons --------------------------------------------- */
+.card:hover {
+  background-image: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(34, 211, 238, .14), transparent 60%);
+}
+.card .icon { transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.card:hover .icon { transform: scale(1.12) rotate(-6deg); }
+.project-card .preview { transition: transform .6s ease; transform-origin: center; }
+.project-card:hover .preview { transform: scale(1.06); }
+.badge { transition: transform .2s, background .2s; }
+.badge:hover { transform: translateY(-2px); }
+.code-window { transition: transform .3s, box-shadow .3s; }
+.code-window:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(2, 6, 23, .38); }
+.table-wrap tbody tr { transition: background .2s; }
+.table-wrap tbody tr:hover { background: rgba(59, 130, 246, .07); }
+.callout { transition: transform .25s, box-shadow .25s; }
+.callout:hover { transform: translateX(4px); box-shadow: 0 6px 18px rgba(15, 23, 42, .08); }
+
+/* 6. Hero: floating shapes, shimmer text ------------------------ */
+.hero { position: relative; overflow: hidden; }
+.hero > .container { position: relative; z-index: 1; }
+.hero::before, .hero::after {
+  content: ""; position: absolute; border-radius: 50%; filter: blur(60px); opacity: .35; pointer-events: none;
+}
+.hero::before { width: 320px; height: 320px; background: var(--blue); top: -90px; left: -80px; animation: drift 14s ease-in-out infinite; }
+.hero::after { width: 280px; height: 280px; background: var(--cyan); bottom: -100px; right: -60px; animation: drift 17s ease-in-out infinite reverse; }
+@keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, 30px); } }
+.hero .code-window { animation: floaty 6s ease-in-out infinite; }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.hero .gradient-text { background-size: 200% 100%; animation: shimmer 5s linear infinite; }
+@keyframes shimmer { from { background-position: 0 0; } to { background-position: 200% 0; } }
+.hero h1, .hero .lead, .hero .btn-row, .hero .badge-row, .hero .eyebrow, .page-banner h1, .page-banner p {
+  animation: rise .7s cubic-bezier(.2, .7, .2, 1) both;
+}
+.hero .lead, .page-banner p { animation-delay: .1s; }
+.hero .btn-row { animation-delay: .2s; }
+.hero .badge-row { animation-delay: .3s; }
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+
+.stats { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); text-align: center; }
+.stat { padding: 1rem; }
+.stat strong { display: block; font-family: var(--font-head); font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat span { color: var(--muted); font-size: .92rem; }
+
+/* 7. Scroll animations & progress ---------------------------------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 300; background: var(--gradient);
+  transform: scaleX(0); transform-origin: left; pointer-events: none;
+}
+html.js .reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .65s ease var(--d, 0s), transform .65s cubic-bezier(.2, .7, .2, 1) var(--d, 0s);
+}
+html.js .reveal.in { opacity: 1; transform: none; }
+.section-head h2::after {
+  content: ""; display: block; width: 56px; height: 4px; border-radius: 4px; background: var(--gradient); margin-top: .6rem;
+  transform: scaleX(0); transform-origin: left; transition: transform .7s ease .2s;
+}
+.section-head.center h2::after { margin-inline: auto; transform-origin: center; }
+html:not(.js) .section-head h2::after, .section-head.in h2::after, .section-head.seen h2::after { transform: scaleX(1); }
+.timeline > li.seen .node { animation: pulse 1.4s ease-out 1; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, .6); } 100% { box-shadow: 0 0 0 18px rgba(34, 211, 238, 0); } }
+
+.to-top {
+  position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 150; width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer;
+  background: var(--blue); color: #fff; font-size: 1.2rem; box-shadow: 0 10px 24px rgba(2, 6, 23, .35);
+  opacity: 0; visibility: hidden; transform: translateY(14px); transition: opacity .3s, transform .3s, visibility .3s, background .2s;
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--blue-dark); transform: translateY(-4px); }
+
+/* 8. Code copy button ----------------------------------------------- */
+.copy-btn {
+  margin-left: auto; font: inherit; font-family: var(--font-code); font-size: .72rem; color: #CBD5E1; background: rgba(148, 163, 184, .12);
+  border: 1px solid var(--border-dark); border-radius: 6px; padding: .2rem .65rem; cursor: pointer; transition: background .2s, color .2s;
+}
+.copy-btn:hover, .copy-btn:focus-visible { background: rgba(34, 211, 238, .18); color: var(--cyan); }
+.copy-btn.copied { color: var(--success); border-color: var(--success); }
+
+/* 9. Roadmap tracker --------------------------------------------------- */
+.rm-progress {
+  display: grid; gap: .8rem; grid-template-columns: 1fr auto; align-items: center; background: var(--surface);
+  border: 1px solid var(--border-light); border-radius: var(--radius); padding: 1.1rem 1.4rem; margin-bottom: 2rem; box-shadow: var(--shadow);
+  position: sticky; top: calc(var(--header-h) + 10px); z-index: 20;
+}
+.rm-text { grid-column: 1 / -1; font-size: .93rem; color: var(--muted-dark); }
+.rm-text strong { color: var(--text-dark); font-family: var(--font-head); margin-right: .4rem; }
+.rm-bar { height: 10px; border-radius: 10px; background: var(--light-2); overflow: hidden; }
+.rm-bar span { display: block; height: 100%; width: 0; background: var(--gradient); border-radius: 10px; transition: width .6s cubic-bezier(.2, .7, .2, 1); }
+.rm-reset { padding: .45rem 1rem; font-size: .85rem; }
+.done-btn {
+  margin-top: .9rem; align-self: flex-start; font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; display: inline-flex; align-items: center; gap: .55rem;
+  background: transparent; color: var(--text-dark); border: 2px solid var(--input-border); border-radius: 999px; padding: .4rem 1rem; transition: all .25s;
+}
+.done-btn:hover { border-color: var(--blue); color: var(--blue-dark); }
+.done-btn .tick { width: 18px; height: 18px; border-radius: 50%; border: 2px solid currentColor; display: grid; place-items: center; font-size: .7rem; transition: all .25s; }
+.done-btn[aria-pressed="true"] { background: rgba(52, 211, 153, .18); border-color: var(--success); color: #047857; }
+.done-btn[aria-pressed="true"] .tick { background: var(--success); border-color: var(--success); color: #064E3B; }
+.done-btn[aria-pressed="true"] .tick::before { content: "\2713"; }
+.timeline > li.done .node { border-color: var(--success); color: var(--navy); background: var(--success); }
+.timeline > li.done .card { border-color: rgba(52, 211, 153, .7); }
+
+/* 10. Filters -------------------------------------------------------------- */
+.filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.5rem; align-items: center; }
+.chip {
+  font: inherit; font-weight: 600; font-size: .9rem; cursor: pointer; padding: .5rem 1.15rem; border-radius: 999px;
+  background: var(--surface); color: var(--text-dark); border: 2px solid var(--border-light); transition: all .2s;
+}
+.chip:hover { border-color: var(--blue); transform: translateY(-2px); }
+.chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 8px 20px rgba(59, 130, 246, .35); }
+.filter-status { margin-left: auto; font-size: .88rem; color: var(--muted-dark); }
+.project-card.is-hidden { display: none; }
+.project-card.pop { animation: pop .45s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes pop { from { opacity: 0; transform: scale(.94) translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* 11. FAQ accordion ------------------------------------------------------------ */
+details.faq[open] summary::after { content: "+"; transform: translateY(-50%) rotate(135deg); }
+details.faq summary::after { transition: transform .3s ease; }
+details.faq[open] .answer { animation: slideDown .35s ease; }
+details.faq[open] summary { color: var(--blue-dark); }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+
+/* 12. Form touches ---------------------------------------------------------------- */
+.field input, .field select, .field textarea { transition: border-color .2s, box-shadow .2s, transform .2s; }
+.field input:focus, .field select:focus, .field textarea:focus { transform: translateY(-1px); }
+.field.invalid { animation: shake .35s ease; }
+@keyframes shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+.form-status.show { animation: slideDown .3s ease; }
+
+/* Reduced motion: no movement, content always visible ---------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  .hero::before, .hero::after, .hero .code-window, .hero .gradient-text { animation: none; }
+  .btn:hover, .card:hover, .code-window:hover { transform: none; }
+  .scroll-progress { display: none; }
+}

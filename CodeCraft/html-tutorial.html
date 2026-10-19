@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn HTML — Beginner HTML5 Tutorial | CodeCraft</title>
+  <meta name="description" content="A structured beginner HTML tutorial: document structure, text, links, images, lists, tables, forms, semantic elements, accessibility basics and a personal profile page exercise.">
+  <meta name="theme-color" content="#0B1120">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233B82F6'/%3E%3Ctext x='16' y='22' font-size='16' font-family='monospace' font-weight='700' text-anchor='middle' fill='%230B1120'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="CodeCraft home"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span></button>
+    <nav aria-label="Primary">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="has-dd has-current"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-learn">Learn<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-learn">
+            <li><a href="getting-started.html">Getting Started<small>How websites work and your first page</small></a></li>
+            <li><a href="html-tutorial.html" aria-current="page">HTML<small>Structure, text, forms and semantics</small></a></li>
+            <li><a href="css-tutorial.html">CSS<small>Style, layout, Flexbox, Grid and responsive</small></a></li>
+            <li><a href="roadmap.html">Roadmap<small>A 10-stage path with a progress tracker</small></a></li>
+          </ul>
+        </li>
+        <li class="has-dd"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-explore">Explore<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-explore">
+            <li><a href="projects.html">Projects<small>Six beginner builds with guides</small></a></li>
+            <li><a href="resources.html">Resources<small>Trusted tools and documentation</small></a></li>
+            <li><a href="faq.html">FAQ<small>Quick answers to common questions</small></a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-banner">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><a href="getting-started.html">Learn</a></li><li aria-current="page">HTML</li></ol></nav>
+    <h1>Learn HTML</h1>
+    <p>HTML gives every web page its structure and meaning. Work through these lessons in order, trying each example in your own editor.</p>
+    <div class="badge-row"><span class="badge beginner">Beginner</span><span class="badge">HTML5</span><span class="badge">About 2–3 hours</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container doc-layout">
+    <aside class="toc" aria-label="On this page">
+      <h2>Lessons</h2>
+      <ol>
+        <li><a href="#intro">Introduction to HTML</a></li>
+        <li><a href="#structure">Document structure</a></li>
+        <li><a href="#text">Headings and paragraphs</a></li>
+        <li><a href="#formatting">Text formatting</a></li>
+        <li><a href="#links-images">Links and images</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#forms">Forms and inputs</a></li>
+        <li><a href="#semantic">Semantic HTML5</a></li>
+        <li><a href="#accessibility">Accessibility basics</a></li>
+        <li><a href="#mistakes">Common mistakes</a></li>
+        <li><a href="#examples">Practical example</a></li>
+        <li><a href="#exercise">Mini exercise</a></li>
+      </ol>
+    </aside>
+
+    <div class="doc-content">
+      <div class="learn-box">
+        <h2>What You’ll Learn</h2>
+        <ul class="stat-list">
+          <li>How to structure a complete HTML5 document</li>
+          <li>How to add text, links, images, lists, tables and forms</li>
+          <li>Why semantic elements and accessibility matter</li>
+          <li>How to build a personal profile page from scratch</li>
+        </ul>
+      </div>
+
+      <section id="intro">
+        <h2>1. Introduction to HTML</h2>
+        <p>HTML stands for <strong>HyperText Markup Language</strong>. It is a <em>markup</em> language: you wrap content in <strong>elements</strong> that tell the browser what each piece of content is, such as a heading, a paragraph or a link.</p>
+        <p>An element usually has an opening tag, content and a closing tag:</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>element-anatomy.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;p</span> <span class="tok-attr">class</span>=<span class="tok-str">"intro"</span><span class="tok-tag">&gt;</span>This is a paragraph element.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span>
+<span class="tok-com">&lt;!-- &lt;p&gt; opens, &lt;/p&gt; closes, class="intro" is an attribute --&gt;</span></code></pre></div>
+        <p>Tags are the names in angle brackets. <strong>Attributes</strong> such as <code>class</code> add extra information and always go inside the opening tag.</p>
+      </section>
+
+      <section id="structure">
+        <h2>2. HTML Document Structure</h2>
+        <p>Every HTML page uses the same skeleton:</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>index.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;!DOCTYPE</span> html<span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;html</span> <span class="tok-attr">lang</span>=<span class="tok-str">"en"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;head</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">charset</span>=<span class="tok-str">"utf-8"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">name</span>=<span class="tok-str">"viewport"</span> <span class="tok-attr">content</span>=<span class="tok-str">"width=device-width, initial-scale=1"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;title</span><span class="tok-tag">&gt;</span>Page title shown on the browser tab<span class="tok-tag">&lt;/title</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/head</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;body</span><span class="tok-tag">&gt;</span>
+  <span class="tok-com">&lt;!-- Everything visible goes here --&gt;</span>
+<span class="tok-tag">&lt;/body</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/html</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <ul>
+          <li><code>&lt;!DOCTYPE html&gt;</code> tells the browser this is modern HTML5.</li>
+          <li><code>&lt;html lang="en"&gt;</code> is the root element. The <code>lang</code> attribute helps screen readers pronounce text correctly.</li>
+          <li><code>&lt;head&gt;</code> holds information about the page: character set, title and links to stylesheets.</li>
+          <li><code>&lt;meta name="viewport"&gt;</code> makes the page scale properly on phones.</li>
+          <li><code>&lt;body&gt;</code> contains everything people see.</li>
+        </ul>
+      </section>
+
+      <section id="text">
+        <h2>3. Headings and Paragraphs</h2>
+        <p>HTML has six heading levels, <code>&lt;h1&gt;</code> (most important) to <code>&lt;h6&gt;</code>. Use one <code>&lt;h1&gt;</code> per page for the main topic, then <code>&lt;h2&gt;</code> for sections, <code>&lt;h3&gt;</code> for subsections, and so on without skipping levels.</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>headings.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;h1</span><span class="tok-tag">&gt;</span>Healthy Cooking<span class="tok-tag">&lt;/h1</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;h2</span><span class="tok-tag">&gt;</span>Breakfast Ideas<span class="tok-tag">&lt;/h2</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;p</span><span class="tok-tag">&gt;</span>A good breakfast gives you energy for the day.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;h3</span><span class="tok-tag">&gt;</span>Quick oatmeal<span class="tok-tag">&lt;/h3</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;p</span><span class="tok-tag">&gt;</span>Ready in five minutes with just three ingredients.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <div class="callout tip"><strong class="title">Tip</strong><p>Choose headings for meaning, not size. Use CSS to change how big a heading looks.</p></div>
+      </section>
+
+      <section id="formatting">
+        <h2>4. Text Formatting</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Element</th><th scope="col">Meaning</th><th scope="col">Typical look</th></tr></thead>
+            <tbody>
+              <tr><td><code>&lt;strong&gt;</code></td><td>Strong importance</td><td><strong>Bold</strong></td></tr>
+              <tr><td><code>&lt;em&gt;</code></td><td>Emphasis</td><td><em>Italic</em></td></tr>
+              <tr><td><code>&lt;mark&gt;</code></td><td>Highlighted for reference</td><td><mark>Highlighted</mark></td></tr>
+              <tr><td><code>&lt;code&gt;</code></td><td>Computer code</td><td><code>code</code></td></tr>
+              <tr><td><code>&lt;br&gt;</code></td><td>Line break</td><td>Starts a new line</td></tr>
+            </tbody>
+          </table>
+        </div>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>formatting.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;p</span><span class="tok-tag">&gt;</span>This is <span class="tok-tag">&lt;strong</span><span class="tok-tag">&gt;</span>very important<span class="tok-tag">&lt;/strong</span><span class="tok-tag">&gt;</span> and this is <span class="tok-tag">&lt;em</span><span class="tok-tag">&gt;</span>emphasized<span class="tok-tag">&lt;/em</span><span class="tok-tag">&gt;</span>.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span></code></pre></div>
+      </section>
+
+      <section id="links-images">
+        <h2>5. Links and Images</h2>
+        <p>Links use the <code>&lt;a&gt;</code> (anchor) element with an <code>href</code> attribute giving the destination. Images use the self-closing <code>&lt;img&gt;</code> element with <code>src</code> (the file) and <code>alt</code> (a text description).</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>links-images.html</span></div><pre tabindex="0"><code><span class="tok-com">&lt;!-- Link to another website --&gt;</span>
+<span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-str">"https://developer.mozilla.org/"</span><span class="tok-tag">&gt;</span>Visit MDN Web Docs<span class="tok-tag">&lt;/a</span><span class="tok-tag">&gt;</span>
+
+<span class="tok-com">&lt;!-- Link to another page in your site --&gt;</span>
+<span class="tok-tag">&lt;a</span> <span class="tok-attr">href</span>=<span class="tok-str">"about.html"</span><span class="tok-tag">&gt;</span>About me<span class="tok-tag">&lt;/a</span><span class="tok-tag">&gt;</span>
+
+<span class="tok-com">&lt;!-- An image with alternative text --&gt;</span>
+<span class="tok-tag">&lt;img</span> <span class="tok-attr">src</span>=<span class="tok-str">"images/sunset.jpg"</span> <span class="tok-attr">alt</span>=<span class="tok-str">"Orange sunset over a calm sea"</span> <span class="tok-attr">width</span>=<span class="tok-str">"600"</span> <span class="tok-attr">height</span>=<span class="tok-str">"400"</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <div class="callout"><strong class="title">Why alt text matters</strong><p>The <code>alt</code> text is read aloud by screen readers and shown if the image cannot load. Describe what the image shows. If an image is purely decorative, use an empty <code>alt=""</code>.</p></div>
+      </section>
+
+      <section id="lists">
+        <h2>6. Ordered and Unordered Lists</h2>
+        <div class="demo-pair">
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>lists.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;ul</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>HTML<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>CSS<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>JavaScript<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/ul</span><span class="tok-tag">&gt;</span>
+
+<span class="tok-tag">&lt;ol</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>Plan the page<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>Write the HTML<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>Add the CSS<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/ol</span><span class="tok-tag">&gt;</span></code></pre></div>
+          <div class="demo-output"><div class="label">Browser output</div><div class="stage">
+            <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            <ol><li>Plan the page</li><li>Write the HTML</li><li>Add the CSS</li></ol>
+          </div></div>
+        </div>
+        <p>Use <code>&lt;ul&gt;</code> when order does not matter (bullets) and <code>&lt;ol&gt;</code> when it does (numbers).</p>
+      </section>
+
+      <section id="tables">
+        <h2>7. Tables</h2>
+        <p>Tables display data in rows and columns. Use them for data, not for page layout.</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>table.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;table</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;caption</span><span class="tok-tag">&gt;</span>Weekly study plan<span class="tok-tag">&lt;/caption</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;thead</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;tr</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;th</span> <span class="tok-attr">scope</span>=<span class="tok-str">"col"</span><span class="tok-tag">&gt;</span>Day<span class="tok-tag">&lt;/th</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;th</span> <span class="tok-attr">scope</span>=<span class="tok-str">"col"</span><span class="tok-tag">&gt;</span>Topic<span class="tok-tag">&lt;/th</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;/tr</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/thead</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;tbody</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;tr</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;td</span><span class="tok-tag">&gt;</span>Monday<span class="tok-tag">&lt;/td</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;td</span><span class="tok-tag">&gt;</span>HTML basics<span class="tok-tag">&lt;/td</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;/tr</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;tr</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;td</span><span class="tok-tag">&gt;</span>Wednesday<span class="tok-tag">&lt;/td</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;td</span><span class="tok-tag">&gt;</span>CSS colors<span class="tok-tag">&lt;/td</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;/tr</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/tbody</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/table</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <p><code>&lt;tr&gt;</code> is a row, <code>&lt;th&gt;</code> a header cell and <code>&lt;td&gt;</code> a data cell. The <code>scope</code> attribute tells assistive technology whether a header applies to a column or row.</p>
+      </section>
+
+      <section id="forms">
+        <h2>8. Forms and Input Fields</h2>
+        <p>Forms collect information from visitors. Every input needs a <code>&lt;label&gt;</code> connected through matching <code>for</code> and <code>id</code> values.</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>form.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;form</span> <span class="tok-attr">action</span>=<span class="tok-str">"#"</span> <span class="tok-attr">method</span>=<span class="tok-str">"post"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-str">"name"</span><span class="tok-tag">&gt;</span>Your name<span class="tok-tag">&lt;/label</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-str">"text"</span> <span class="tok-attr">id</span>=<span class="tok-str">"name"</span> <span class="tok-attr">name</span>=<span class="tok-str">"name"</span> required<span class="tok-tag">&gt;</span>
+
+  <span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-str">"email"</span><span class="tok-tag">&gt;</span>Email address<span class="tok-tag">&lt;/label</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;input</span> <span class="tok-attr">type</span>=<span class="tok-str">"email"</span> <span class="tok-attr">id</span>=<span class="tok-str">"email"</span> <span class="tok-attr">name</span>=<span class="tok-str">"email"</span> required<span class="tok-tag">&gt;</span>
+
+  <span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-str">"topic"</span><span class="tok-tag">&gt;</span>Favorite topic<span class="tok-tag">&lt;/label</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;select</span> <span class="tok-attr">id</span>=<span class="tok-str">"topic"</span> <span class="tok-attr">name</span>=<span class="tok-str">"topic"</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;option</span><span class="tok-tag">&gt;</span>HTML<span class="tok-tag">&lt;/option</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;option</span><span class="tok-tag">&gt;</span>CSS<span class="tok-tag">&lt;/option</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/select</span><span class="tok-tag">&gt;</span>
+
+  <span class="tok-tag">&lt;label</span> <span class="tok-attr">for</span>=<span class="tok-str">"msg"</span><span class="tok-tag">&gt;</span>Message<span class="tok-tag">&lt;/label</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;textarea</span> <span class="tok-attr">id</span>=<span class="tok-str">"msg"</span> <span class="tok-attr">name</span>=<span class="tok-str">"msg"</span> <span class="tok-attr">rows</span>=<span class="tok-str">"4"</span><span class="tok-tag">&gt;</span><span class="tok-tag">&lt;/textarea</span><span class="tok-tag">&gt;</span>
+
+  <span class="tok-tag">&lt;button</span> <span class="tok-attr">type</span>=<span class="tok-str">"submit"</span><span class="tok-tag">&gt;</span>Send<span class="tok-tag">&lt;/button</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/form</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <p>Common input types include <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>checkbox</code>, <code>radio</code> and <code>date</code>. The <code>required</code> attribute asks the browser to check the field before submitting. A form that really sends data also needs server-side code, which is a later topic.</p>
+      </section>
+
+      <section id="semantic">
+        <h2>9. Semantic HTML5 Elements</h2>
+        <p>Semantic elements describe their purpose, which helps search engines, screen readers and other developers understand your page.</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>semantic.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;body</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;header</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;nav</span> <span class="tok-attr">aria-label</span>=<span class="tok-str">"Main"</span><span class="tok-tag">&gt;</span> ... links ... <span class="tok-tag">&lt;/nav</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/header</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;main</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;article</span><span class="tok-tag">&gt;</span>
+      <span class="tok-tag">&lt;h1</span><span class="tok-tag">&gt;</span>Article title<span class="tok-tag">&lt;/h1</span><span class="tok-tag">&gt;</span>
+      <span class="tok-tag">&lt;section</span><span class="tok-tag">&gt;</span> ... <span class="tok-tag">&lt;/section</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;/article</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;aside</span><span class="tok-tag">&gt;</span> Related links <span class="tok-tag">&lt;/aside</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/main</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;footer</span><span class="tok-tag">&gt;</span> Copyright information <span class="tok-tag">&lt;/footer</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/body</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <ul>
+          <li><code>&lt;header&gt;</code> – introductory content or navigation</li>
+          <li><code>&lt;nav&gt;</code> – a block of navigation links</li>
+          <li><code>&lt;main&gt;</code> – the main content, used once per page</li>
+          <li><code>&lt;section&gt;</code> and <code>&lt;article&gt;</code> – grouped or self-contained content</li>
+          <li><code>&lt;aside&gt;</code> – related side content</li>
+          <li><code>&lt;footer&gt;</code> – closing information for the page or section</li>
+        </ul>
+      </section>
+
+      <section id="accessibility">
+        <h2>10. Accessibility Fundamentals</h2>
+        <p>Accessible pages work for everyone, including people who use screen readers, keyboards or magnification. Good HTML does most of the work.</p>
+        <ul class="stat-list">
+          <li>Write meaningful <code>alt</code> text on images.</li>
+          <li>Use headings in a logical order and semantic landmarks such as <code>&lt;main&gt;</code> and <code>&lt;nav&gt;</code>.</li>
+          <li>Connect every form control to a <code>&lt;label&gt;</code>.</li>
+          <li>Use descriptive link text such as “Read the CSS guide”, not “click here”.</li>
+          <li>Set the page language with <code>&lt;html lang="en"&gt;</code>.</li>
+          <li>Make sure everything works with the keyboard alone (Tab, Enter, Space).</li>
+        </ul>
+      </section>
+
+      <section id="mistakes">
+        <h2>11. Common Beginner Mistakes</h2>
+        <div class="callout warn">
+          <ul>
+            <li><strong>Unclosed tags.</strong> Always close elements such as <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code> and <code>&lt;li&gt;</code>.</li>
+            <li><strong>Wrong nesting.</strong> Close tags in reverse order: <code>&lt;p&gt;&lt;strong&gt;text&lt;/strong&gt;&lt;/p&gt;</code>.</li>
+            <li><strong>Skipping heading levels</strong> or picking headings for their size.</li>
+            <li><strong>Missing alt text</strong> on meaningful images.</li>
+            <li><strong>Using tables for layout.</strong> Use CSS for layout.</li>
+            <li><strong>Broken file paths.</strong> Check spelling, capital letters and folders.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="examples">
+        <h2>12. Practical Example: A Recipe Card</h2>
+        <p>Here is a small page that combines several elements you have learned.</p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>recipe.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;article</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;h1</span><span class="tok-tag">&gt;</span>Simple Tomato Pasta<span class="tok-tag">&lt;/h1</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;img</span> <span class="tok-attr">src</span>=<span class="tok-str">"pasta.jpg"</span> <span class="tok-attr">alt</span>=<span class="tok-str">"A bowl of tomato pasta with basil"</span> <span class="tok-attr">width</span>=<span class="tok-str">"480"</span> <span class="tok-attr">height</span>=<span class="tok-str">"320"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;p</span><span class="tok-tag">&gt;</span>A quick dinner for <span class="tok-tag">&lt;strong</span><span class="tok-tag">&gt;</span>two people<span class="tok-tag">&lt;/strong</span><span class="tok-tag">&gt;</span> in about 20 minutes.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span>
+
+  <span class="tok-tag">&lt;h2</span><span class="tok-tag">&gt;</span>Ingredients<span class="tok-tag">&lt;/h2</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;ul</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>200 g pasta<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>1 can chopped tomatoes<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>2 cloves of garlic<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/ul</span><span class="tok-tag">&gt;</span>
+
+  <span class="tok-tag">&lt;h2</span><span class="tok-tag">&gt;</span>Method<span class="tok-tag">&lt;/h2</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;ol</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>Boil the pasta until tender.<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>Simmer the tomatoes and garlic for 10 minutes.<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;li</span><span class="tok-tag">&gt;</span>Mix together and serve.<span class="tok-tag">&lt;/li</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/ol</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/article</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <p>Notice how the headings, lists and the <code>&lt;article&gt;</code> wrapper describe the meaning of the content before any styling is applied.</p>
+      </section>
+
+      <section id="exercise">
+        <h2>Mini Exercise: Create a Personal Profile Page</h2>
+        <div class="callout tip"><strong class="title">Your task</strong><p>Create a file named <code>profile.html</code> and build a page about yourself using only HTML.</p></div>
+        <p><strong>Requirements checklist:</strong></p>
+        <ul>
+          <li>Use the full HTML5 document structure with a descriptive <code>&lt;title&gt;</code>.</li>
+          <li>Include a <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code> and <code>&lt;footer&gt;</code>.</li>
+          <li>One <code>&lt;h1&gt;</code> with your name, plus at least two <code>&lt;h2&gt;</code> sections (for example “About me” and “My interests”).</li>
+          <li>A paragraph about yourself and a photo with meaningful alt text (optional).</li>
+          <li>An unordered list of hobbies and an ordered list of goals.</li>
+          <li>A link to a website you like.</li>
+        </ul>
+        <p><strong>Starter code:</strong></p>
+<div class="code-window"><div class="code-bar"><i></i><i></i><i></i><span>profile.html</span></div><pre tabindex="0"><code><span class="tok-tag">&lt;!DOCTYPE</span> html<span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;html</span> <span class="tok-attr">lang</span>=<span class="tok-str">"en"</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;head</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">charset</span>=<span class="tok-str">"utf-8"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;meta</span> <span class="tok-attr">name</span>=<span class="tok-str">"viewport"</span> <span class="tok-attr">content</span>=<span class="tok-str">"width=device-width, initial-scale=1"</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;title</span><span class="tok-tag">&gt;</span>Your Name – Personal Profile<span class="tok-tag">&lt;/title</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/head</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;body</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;header</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;h1</span><span class="tok-tag">&gt;</span>Your Name<span class="tok-tag">&lt;/h1</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/header</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;main</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;section</span><span class="tok-tag">&gt;</span>
+      <span class="tok-tag">&lt;h2</span><span class="tok-tag">&gt;</span>About me<span class="tok-tag">&lt;/h2</span><span class="tok-tag">&gt;</span>
+      <span class="tok-tag">&lt;p</span><span class="tok-tag">&gt;</span>Write two or three sentences here.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;/section</span><span class="tok-tag">&gt;</span>
+    <span class="tok-com">&lt;!-- Add your interests, goals and a link below --&gt;</span>
+  <span class="tok-tag">&lt;/main</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;footer</span><span class="tok-tag">&gt;</span>
+    <span class="tok-tag">&lt;p</span><span class="tok-tag">&gt;</span>Made with HTML.<span class="tok-tag">&lt;/p</span><span class="tok-tag">&gt;</span>
+  <span class="tok-tag">&lt;/footer</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/body</span><span class="tok-tag">&gt;</span>
+<span class="tok-tag">&lt;/html</span><span class="tok-tag">&gt;</span></code></pre></div>
+        <p>When you are done, your page will look plain. That is expected. In the next lesson you will style it with CSS.</p>
+      </section>
+
+      <div class="pager">
+        <a class="btn btn-secondary back" href="getting-started.html">Getting Started</a>
+        <a class="btn btn-primary" href="css-tutorial.html">Next lesson: Learn CSS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+        <p style="margin-top:1rem;max-width:300px">Learn to Code. Build with Confidence. Free, beginner-friendly lessons in HTML, CSS and the fundamentals of web development.</p>
+      </div>
+      <div>
+        <h2>Learn</h2>
+        <ul>
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="html-tutorial.html">Learn HTML</a></li>
+          <li><a href="css-tutorial.html">Learn CSS</a></li>
+          <li><a href="roadmap.html">Learning Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="projects.html">Beginner Projects</a></li>
+          <li><a href="resources.html">Resources &amp; Tools</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>CodeCraft</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact &amp; Feedback</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CodeCraft. An educational resource for beginners.</span>
+      <span>Built with HTML5 &amp; CSS3.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

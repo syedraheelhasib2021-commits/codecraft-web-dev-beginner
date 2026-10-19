@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Development FAQ — Beginner Questions Answered | CodeCraft</title>
+  <meta name="description" content="Answers to common beginner questions about web development, HTML, CSS, learning time, software, free resources, responsive design, publishing a site and what to learn next.">
+  <meta name="theme-color" content="#0B1120">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233B82F6'/%3E%3Ctext x='16' y='22' font-size='16' font-family='monospace' font-weight='700' text-anchor='middle' fill='%230B1120'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html" aria-label="CodeCraft home"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span></button>
+    <nav aria-label="Primary">
+      <ul class="nav-list" id="primary-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="has-dd"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-learn">Learn<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-learn">
+            <li><a href="getting-started.html">Getting Started<small>How websites work and your first page</small></a></li>
+            <li><a href="html-tutorial.html">HTML<small>Structure, text, forms and semantics</small></a></li>
+            <li><a href="css-tutorial.html">CSS<small>Style, layout, Flexbox, Grid and responsive</small></a></li>
+            <li><a href="roadmap.html">Roadmap<small>A 10-stage path with a progress tracker</small></a></li>
+          </ul>
+        </li>
+        <li class="has-dd has-current"><button class="dd-toggle" type="button" aria-expanded="false" aria-controls="dd-explore">Explore<span class="caret" aria-hidden="true"></span></button>
+          <ul class="dd-menu" id="dd-explore">
+            <li><a href="projects.html">Projects<small>Six beginner builds with guides</small></a></li>
+            <li><a href="resources.html">Resources<small>Trusted tools and documentation</small></a></li>
+            <li><a href="faq.html" aria-current="page">FAQ<small>Quick answers to common questions</small></a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-banner">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li aria-current="page">FAQ</li></ol></nav>
+    <h1>Frequently Asked Questions</h1>
+    <p>Quick, honest answers to the questions most beginners ask. Select a question to open the answer.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container faq-list">
+    <details class="faq" id="what-is">
+      <summary>What is web development?</summary>
+      <div class="answer"><p>Web development is the process of building websites and web applications. It includes designing how pages look, writing the code that structures and styles them, and, for larger sites, building the server-side systems behind them. See <a href="getting-started.html">Getting Started</a> for a full introduction.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Is HTML a programming language?</summary>
+      <div class="answer"><p>Not in the strict sense. HTML is a <em>markup language</em>: it describes the structure and meaning of content. It does not contain logic such as conditions or loops. Languages like JavaScript and Python are programming languages. HTML is still an essential skill, and the best place to start.</p></div>
+    </details>
+    <details class="faq">
+      <summary>What is the difference between HTML and CSS?</summary>
+      <div class="answer"><p>HTML defines <strong>what</strong> is on the page (headings, paragraphs, images, links). CSS defines <strong>how it looks</strong> (colors, fonts, spacing, layout). Learn them together: HTML first, then CSS. Start with the <a href="html-tutorial.html">HTML tutorial</a> and the <a href="css-tutorial.html">CSS tutorial</a>.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Do I need coding experience?</summary>
+      <div class="answer"><p>No. HTML and CSS are widely considered the most beginner-friendly parts of programming and web development. If you can use a computer and a web browser, you can begin.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Can I build a website using only HTML and CSS?</summary>
+      <div class="answer"><p>Yes. Many websites, such as portfolios, landing pages, documentation and simple business sites, are built with only HTML and CSS. You only need JavaScript or a backend when you want features like user accounts, saving data or complex interactions.</p></div>
+    </details>
+    <details class="faq">
+      <summary>How long does it take to learn HTML and CSS?</summary>
+      <div class="answer"><p>It depends on how much time you practice. With a few hours per week, many learners are comfortable with the basics in roughly one to three months, and confident building full responsive pages after a few more. Mastery takes longer, and learning never really ends. Regular practice matters more than speed.</p></div>
+    </details>
+    <details class="faq">
+      <summary>What software do I need?</summary>
+      <div class="answer"><p>Just a modern web browser and a text editor, both free. <a href="https://code.visualstudio.com/" rel="noopener">Visual Studio Code</a> is a popular editor. See the <a href="resources.html#editors">Resources</a> page for more options.</p></div>
+    </details>
+    <details class="faq">
+      <summary>Can I learn coding for free?</summary>
+      <div class="answer"><p>Yes. Excellent free resources exist, including this site, MDN Web Docs, freeCodeCamp and web.dev. Browse the <a href="resources.html#learning">free learning websites</a> list. Paid courses can add structure or mentoring, but they are not required.</p></div>
+    </details>
+    <details class="faq">
+      <summary>What is responsive web design?</summary>
+      <div class="answer"><p>Responsive design means a website adapts its layout to the screen it is shown on, whether a phone, tablet or desktop. It relies on flexible layouts (Flexbox and Grid), fluid images and CSS media queries. Read the <a href="css-tutorial.html#responsive">responsive basics</a> lesson.</p></div>
+    </details>
+    <details class="faq">
+      <summary>What is the difference between frontend and backend?</summary>
+      <div class="answer"><p>The <strong>frontend</strong> is everything users see and interact with in the browser, built with HTML, CSS and JavaScript. The <strong>backend</strong> is the server-side part that handles data, accounts and business logic, built with languages like Python, Node.js or PHP plus databases. Full-stack developers work on both.</p></div>
+    </details>
+    <details class="faq" id="publish">
+      <summary>How do I publish my first website?</summary>
+      <div class="answer">
+        <p>Publishing means putting your files on a web server. For static sites made of HTML, CSS and images, free static hosting services make this easy. A typical path:</p>
+        <ol>
+          <li>Make sure your home page is named <code>index.html</code> and your links work.</li>
+          <li>Create a free <a href="https://github.com/" rel="noopener">GitHub</a> account and upload your project to a repository.</li>
+          <li>Enable a static hosting feature such as GitHub Pages in the repository settings, or use another free static host.</li>
+          <li>Wait a few minutes, then open the link the host gives you and test the site on your phone.</li>
+        </ol>
+        <p>Hosting services change their steps over time, so follow their current official guide. Also choose a custom domain only if you want one; it is not required.</p>
+      </div>
+    </details>
+    <details class="faq">
+      <summary>What should I learn after HTML and CSS?</summary>
+      <div class="answer"><p>Learn <strong>JavaScript</strong> basics to make pages interactive, then <strong>Git and GitHub</strong> for version control. After that you can explore a frontend framework, backend basics, or accessibility and performance in more depth. The <a href="roadmap.html">roadmap</a> lays out the order.</p></div>
+    </details>
+    <details class="faq">
+      <summary>I made a mistake and my page looks broken. What should I do?</summary>
+      <div class="answer"><p>This happens to everyone. Check for missing closing tags or quotes, confirm file names and paths, and use your browser’s developer tools (<code>F12</code>) to inspect the element. Running your code through the <a href="https://validator.w3.org/" rel="noopener">W3C validator</a> can also pinpoint problems.</p></div>
+    </details>
+
+    <div class="cta-banner" style="margin-top:3rem">
+      <h2>Still Have a Question?</h2>
+      <p>Send us your question and we will consider adding it to this page.</p>
+      <div class="btn-row"><a class="btn btn-primary" href="contact.html">Ask a Question</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>CodeCraft</a>
+        <p style="margin-top:1rem;max-width:300px">Learn to Code. Build with Confidence. Free, beginner-friendly lessons in HTML, CSS and the fundamentals of web development.</p>
+      </div>
+      <div>
+        <h2>Learn</h2>
+        <ul>
+          <li><a href="getting-started.html">Getting Started</a></li>
+          <li><a href="html-tutorial.html">Learn HTML</a></li>
+          <li><a href="css-tutorial.html">Learn CSS</a></li>
+          <li><a href="roadmap.html">Learning Roadmap</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="projects.html">Beginner Projects</a></li>
+          <li><a href="resources.html">Resources &amp; Tools</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>CodeCraft</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact &amp; Feedback</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 CodeCraft. An educational resource for beginners.</span>
+      <span>Built with HTML5 &amp; CSS3.</span>
+    </div>
+  </div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
